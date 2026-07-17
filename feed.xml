@@ -5,7 +5,7 @@
     <link>https://example.com</link>
     <description>마크다운으로 만드는 정적 블로그</description>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 17 Jul 2026 02:52:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2026 03:06:14 GMT</lastBuildDate>
     <generator>my-blog RSS Generator</generator>
   <item>
     <title>배포 완료! RSS 시스템 테스트</title>
@@ -26,6 +26,16 @@
     <author>pedma333</author>
     <category>기술</category>
     <comments>RSS, 피드, 자동화, 배포</comments>
+  </item>
+  <item>
+    <title>의료 전문가의 마크다운 블로그를 시작합니다</title>
+    <link>https://example.com/blog.html?post=welcome-to-my-blog</link>
+    <guid isPermaLink="false">https://example.com/blog.html?post=welcome-to-my-blog</guid>
+    <description>의료 전문가의 마크다운 블로그를 시작합니다 🩺 안녕하세요. 마상혁입니다. 저는 소아청소년과 전문의이자 바이오헬스 벤처 대표, 그리고 의학 칼럼니스트로 활동하고 있습니다. 이 블로그는 제 의료 경험과 전문 지식을 나누고, 근거 기반의 건강 정보를 제공하기 위해 개설했습니다. 이 블로그에서 다룰 주제들 👨‍⚕️ 소아 건강 - 소아 성장: 성장호르몬, 성조숙증, 성장 장애 - 소아 면역: 백신, 감염 질환, 질병 예방 - 소아 영양: 생애 초기 영양, 마이크로바이옴 - 소아 비만: 대사 건강, 비만 치료 🔬 의료 과학 - 감염병: ...</description>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <author>마상혁 (pedma333)</author>
+    <category>인사</category>
+    <comments>블로그, 의료, 건강, 소아청소년과, 바이오헬스</comments>
   </item>
   <item>
     <title>my-blog에 오신 것을 환영합니다</title>

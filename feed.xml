@@ -5,7 +5,7 @@
     <link>https://example.com</link>
     <description>마크다운으로 만드는 정적 블로그</description>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 17 Jul 2026 02:50:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2026 02:52:46 GMT</lastBuildDate>
     <generator>my-blog RSS Generator</generator>
   <item>
     <title>배포 완료! RSS 시스템 테스트</title>
@@ -16,6 +16,16 @@
     <author>pedma333</author>
     <category>공지</category>
     <comments>배포, GitHub Pages, RSS, 자동화</comments>
+  </item>
+  <item>
+    <title>RSS 피드로 블로그 콘텐츠 배포하기</title>
+    <link>https://example.com/blog.html?post=rss-feed-guide</link>
+    <guid isPermaLink="false">https://example.com/blog.html?post=rss-feed-guide</guid>
+    <description>RSS 피드로 블로그 콘텐츠 배포하기 RSS(Really Simple Syndication)는 블로그 콘텐츠를 자동으로 구독자들에게 전달하는 강력한 도구입니다. RSS 피드란? RSS 피드는 블로그의 최신 글을 자동으로 정보 형태로 제공하는 방식입니다. 장점 - 📱 독자 편의성: RSS Reader에서 모든 블로그를 한곳에서 관리 - 🔄 자동화: 새 글이 나올 때마다 자동으로 알림 - 🌐 확산성: 다양한 플랫폼(네이버, Feedly 등)에 자동 배포 - 📊 추적: 구독자 수 모니터링 my-blog의 RSS 시스템 우리 블로그...</description>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <author>pedma333</author>
+    <category>기술</category>
+    <comments>RSS, 피드, 자동화, 배포</comments>
   </item>
   <item>
     <title>my-blog에 오신 것을 환영합니다</title>

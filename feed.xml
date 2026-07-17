@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>my-blog</title>
+    <link>https://example.com</link>
+    <description>마크다운으로 만드는 정적 블로그</description>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 17 Jul 2026 02:37:16 GMT</lastBuildDate>
+    <generator>my-blog RSS Generator</generator>
+  <item>
+    <title>my-blog에 오신 것을 환영합니다</title>
+    <link>https://example.com/blog.html?post=welcome</link>
+    <guid isPermaLink="false">https://example.com/blog.html?post=welcome</guid>
+    <description>my-blog에 오신 것을 환영합니다 👋 이 블로그는 마크다운 파일을 HTML로 변환하는 정적 블로그입니다. 프레임워크 없이 순수 HTML, CSS, JavaScript로만 구현했습니다. 주요 특징 - 📝 마크다운 중심: .md 파일로 글을 작성하고 자동 렌더링 - 🌓 다크모드: OS 설정 자동 감지 + 수동 토글 - 📱 반응형 디자인: 모바일, 태블릿, 데스크톱 모두 최적화 - ⚡ 빠른 성능: 의존성 없는 순수 바닐라 JS - 🎨 깔끔한 디자인: 읽기 편한 미니멀 스타일 시작하기 블로그 글 작성하기 1. posts/ 디렉...</description>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <author>관리자</author>
+    <category>소개</category>
+    <comments>마크다운, 블로그, 웹개발</comments>
+  </item>
+  <item>
+    <title>마크다운 문법 가이드</title>
+    <link>https://example.com/blog.html?post=example</link>
+    <guid isPermaLink="false">https://example.com/blog.html?post=example</guid>
+    <description>마크다운 문법 가이드 📚 이 글은 my-blog에서 지원하는 마크다운 문법을 모두 시연합니다. 제목 (Headings) 위의 코드로 위와 같은 제목들을 만들 수 있습니다. --- 텍스트 포매팅 굵은 텍스트 (Bold) 이것은 굵은 텍스트입니다. 텍스트 또는 텍스트 로 작성합니다. 이탤릭 (Italic) 이것은 이탤릭 텍스트입니다. 텍스트 또는 텍스트 로 작성합니다. 취소선 (Strikethrough) 이 부분은 제거되었습니다. 텍스트 로 작성합니다. 조합 굵고 이탤릭한 텍스트도 가능합니다. --- 리스트 순서 없는 리스트 (Uno...</description>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate>
+    <author>관리자</author>
+    <category>튜토리얼</category>
+    <comments>마크다운, 가이드, 문법</comments>
+  </item>
+  </channel>
+</rss>

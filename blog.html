@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="블로그 글">
+  <title>블로그 글</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="site-title">my-blog</a>
+        <nav class="header-nav">
+          <button class="theme-toggle" id="themeToggle" aria-label="다크모드 토글" title="다크모드">
+            <span id="themeIcon">🌙</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container--narrow">
+      <article class="blog-post" id="blogPost">
+        <!-- JavaScript로 동적 생성 -->
+        <div class="text-center" style="padding: 2rem;">
+          <p>글을 불러오는 중...</p>
+        </div>
+      </article>
+
+      <nav class="post-nav">
+        <a href="/" class="btn btn-secondary back-link">
+          <span>←</span> 목록으로
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/markdown-parser.js"></script>
+  <script src="js/blog-loader.js"></script>
+</body>
+</html>

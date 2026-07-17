@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>my-blog 테스트</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .test-section {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: var(--bg-secondary);
+      border-radius: 6px;
+      border-left: 4px solid var(--accent);
+    }
+    .test-pass {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .test-fail {
+      color: #dc3545;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="site-title">my-blog</a>
+        <nav class="header-nav">
+          <button class="theme-toggle" id="themeToggle" aria-label="다크모드 토글">
+            <span id="themeIcon">🌙</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>🧪 my-blog 테스트 페이지</h1>
+      <p>마크다운 파서와 기본 기능을 검증합니다.</p>
+
+      <div id="testResults"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/markdown-parser.js"></script>
+  <script>
+    class TestRunner {
+      constructor() {
+        this.results = [];
+        this.pass = 0;
+        this.fail = 0;
+      }
+
+      test(name, fn) {
+        try {
+          fn();
+          this.results.push({ name, status: 'pass', error: null });
+          this.pass++;
+        } catch (error) {
+          this.results.push({ name, status: 'fail', error: error.message });
+          this.fail++;
+        }
+      }
+
+      assert(condition, message) {
+        if (!condition) {
+          throw new Error(message);
+        }
+      }
+
+      run() {
+        // 마크다운 파서 테스트
+        this.test('마크다운 파서 인스턴스 확인', () => {
+          this.assert(typeof parser !== 'undefined', 'parser가 정의되어 있지 않음');
+          this.assert(parser instanceof MarkdownParser, 'MarkdownParser 인스턴스가 아님');
+        });
+
+        // 제목 파싱 테스트
+        this.test('제목 파싱 (# H1)', () => {
+          const result = parser.parse('# 제목');
+          this.assert(result.html.includes('<h1>제목</h1>'), 'H1 제목이 파싱되지 않음');
+        });
+
+        // 굵은 텍스트 테스트
+        this.test('굵은 텍스트 파싱 (**bold**)', () => {
+          const result = parser.parse('**굵은 텍스트**');
+          this.assert(result.html.includes('<strong>굵은 텍스트</strong>'), 'strong 태그가 없음');
+        });
+
+        // 이탤릭 테스트
+        this.test('이탤릭 파싱 (*italic*)', () => {
+          const result = parser.parse('*이탤릭*');
+          this.assert(result.html.includes('<em>이탤릭</em>'), 'em 태그가 없음');
+        });
+
+        // 링크 테스트
+        this.test('링크 파싱 ([text](url))', () => {
+          const result = parser.parse('[Google](https://google.com)');
+          this.assert(result.html.includes('<a href="https://google.com">Google</a>'), '링크 태그가 없음');
+        });
+
+        // 코드 블록 테스트
+        this.test('코드 블록 파싱 (```code```)', () => {
+          const result = parser.parse('```javascript\nconst x = 1;\n```');
+          this.assert(result.html.includes('<pre><code'), 'pre/code 태그가 없음');
+        });
+
+        // 인라인 코드 테스트
+        this.test('인라인 코드 파싱 (`code`)', () => {
+          const result = parser.parse('`인라인 코드`');
+          this.assert(result.html.includes('<code>인라인 코드</code>'), 'code 태그가 없음');
+        });
+
+        // 리스트 테스트
+        this.test('순서 없는 리스트 파싱', () => {
+          const result = parser.parse('- 항목1\n- 항목2');
+          this.assert(result.html.includes('<ul>'), 'ul 태그가 없음');
+          this.assert(result.html.includes('<li>'), 'li 태그가 없음');
+        });
+
+        // 인용문 테스트
+        this.test('인용문 파싱 (> quote)', () => {
+          const result = parser.parse('> 인용문');
+          this.assert(result.html.includes('<blockquote>'), 'blockquote 태그가 없음');
+        });
+
+        // YAML 메타데이터 추출
+        this.test('YAML 프론트매터 추출', () => {
+          const markdown = `---
+title: 테스트
+date: 2026-07-16
+---
+본문`;
+          const result = parser.parse(markdown);
+          this.assert(result.metadata !== null, 'metadata가 null임');
+          this.assert(result.metadata.title === '테스트', 'title이 추출되지 않음');
+        });
+
+        // XSS 방지 테스트
+        this.test('XSS 방지 (HTML 이스케이프)', () => {
+          const result = parser.parse('`<script>alert("xss")</script>`');
+          this.assert(result.html.includes('&lt;'), 'HTML이 이스케이프되지 않음');
+          this.assert(!result.html.includes('<script>'), 'script 태그가 포함됨');
+        });
+
+        // 테마 매니저 테스트
+        this.test('테마 매니저 인스턴스 확인', () => {
+          this.assert(typeof themeManager !== 'undefined', 'themeManager가 정의되어 있지 않음');
+          this.assert(themeManager.getCurrentTheme() !== undefined, '현재 테마를 알 수 없음');
+        });
+
+        // 다크모드 토글 테스트
+        this.test('다크모드 토글 기능', () => {
+          const initialTheme = themeManager.getCurrentTheme();
+          themeManager.toggle();
+          const toggledTheme = themeManager.getCurrentTheme();
+          this.assert(initialTheme !== toggledTheme, '테마가 변경되지 않음');
+        });
+
+        // 결과 렌더링
+        this.render();
+      }
+
+      render() {
+        const container = document.getElementById('testResults');
+        let html = `
+          <div class="test-section">
+            <h2>테스트 결과</h2>
+            <p>총 <strong>${this.pass + this.fail}</strong>개 중 <span class="test-pass">✅ ${this.pass}개 통과</span>, <span class="test-fail">❌ ${this.fail}개 실패</span></p>
+          </div>
+        `;
+
+        this.results.forEach(result => {
+          const status = result.status === 'pass'
+            ? '<span class="test-pass">✅ 통과</span>'
+            : `<span class="test-fail">❌ 실패: ${result.error}</span>`;
+
+          html += `
+            <div class="test-section">
+              <p><strong>${result.name}</strong> - ${status}</p>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+      }
+    }
+
+    // 테스트 실행
+    document.addEventListener('DOMContentLoaded', () => {
+      const runner = new TestRunner();
+      runner.run();
+    });
+  </script>
+</body>
+</html>

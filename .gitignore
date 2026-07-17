@@ -1,0 +1,27 @@
+# Node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 환경 변수
+.env
+.env.local
+
+# 빌드 결과 (선택사항: GitHub Actions로 관리하는 경우 커밋)
+# feed.xml  <- 주석 처리: GitHub에 추적하려면 이 줄을 지우세요
+
+# 기타
+.cache/
+dist/
+build/
+*.log

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Job | Where-Object { $_.Name -eq \"Job1\" } | Select-Object State, HasMoreData)",
+      "PowerShell(Get-Job)",
+      "Bash(python -m http.server 8000)",
+      "Bash(curl -s http://localhost:8000)",
+      "Bash(curl -s http://localhost:8000/index.html)"
+    ]
+  }
+}

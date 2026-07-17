@@ -1,0 +1,36 @@
+name: Build RSS Feed
+
+# 언제 실행할 것인가
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'posts/**'
+      - 'build.js'
+  workflow_dispatch:  # 수동 실행 버튼
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 저장소 코드 다운로드
+      - uses: actions/checkout@v3
+
+      # Node.js 설치
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # RSS 피드 빌드
+      - name: Build RSS Feed
+        run: npm run build
+
+      # 변경사항을 GitHub에 푸시
+      - name: Commit and Push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add feed.xml
+          git commit -m "ci: Update RSS feed [skip ci]" || echo "No changes to commit"
+          git push origin main

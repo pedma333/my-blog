@@ -6,7 +6,9 @@
 class BlogApp {
   constructor() {
     this.posts = [];
-    this.postsPath = './posts/';
+    // GitHub Pages와 로컬 환경 모두 지원
+    const isGitHub = window.location.hostname.includes('github');
+    this.postsPath = isGitHub ? '/my-blog/posts/' : './posts/';
   }
 
   /**

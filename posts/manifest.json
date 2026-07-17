@@ -1,5 +1,8 @@
 {
   "files": [
+    "welcome-to-my-blog.md",
+    "rss-feed-guide.md",
+    "first-deployed-post.md",
     "welcome.md",
     "example.md"
   ]
